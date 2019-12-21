@@ -1,6 +1,12 @@
-<h1>Editing Item</h1>
+<div class="mt-5 pt-5" style="background-color: #e5e5e5; min-height: 100vh" >
+    <div class="row">
+        <div class="col-lg-4">
+            <%= render 'layouts/sidebar' %> 
+        </div>
+        <div class="col-lg-8">
+            <%= render 'form', item: @item, title: "Edit Item" %>
+        </div>
 
-<%= render 'form', item: @item %>
-
-<%= link_to 'Show', @item %> |
-<%= link_to 'Back', items_path %>
+    </div>
+    <%= link_to 'Back', items_path, class: "btn btn-lg btn-info text-white" %>
+</div>

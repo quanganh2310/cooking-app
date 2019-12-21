@@ -1,29 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Categories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.title %></td>
-        <td><%= category.description %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
+<div class="mt-5 pt-5" style="background-color: #e5e5e5; min-height: 100vh" >
+    <div class="row">
+        <div class="col-lg-3">
+            <%= render 'layouts/sidebar' %> 
+        </div>
+        <div class="col-lg-9 pl-0">
+            <h2 class="mb-4">Categories</h2>
+            <div class="row mb-5">
+              <div class="col-md-12">
+                <div class="table-responsive table-responsive-data2">
+                  <table class="table table-data2">
+                      <thead>
+                        <tr>
+                          <th>Title</th>
+                          <th>Description</th>
+                          <th>Image</th>
+                          <th colspan="3"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @categories.each do |category| %>
+                          <tr>
+                            <td><%= category.title %></td>
+                            <td><%= raw category.description %></td>
+                            <td><%= image_tag category.image_url , width: '52', height: '52' %></td>
+                            <td><%= link_to 'Show', category %></td>
+                            <td><%= link_to 'Edit', edit_category_path(category) %></td>
+                            <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <%= link_to 'New Category', new_category_path,  class: "btn btn-lg btn-info text-white" %>
+        </div>
+    </div>
+</div>

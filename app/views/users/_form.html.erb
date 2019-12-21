@@ -1,25 +1,29 @@
 <%= form_for(@user) do |f| %>
-  <div class="form-group">
+  <div class="form-group mt-3" >
     <%= render 'shared/error_messages', object: @user %>
   </div>
 
   <div class="form-group">
-    <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
+    <%= f.label :name, "Username", style: "color: #666; text-align: left" %>
+    <%= f.text_field :name, class: 'form-control au-input au-input--full', placeholder: 'Username' %>
   </div>
 
   <div class="form-group">
-    <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+    <%= f.label :name, "Email Address", style: "color: #666; text-align: left" %>
+    <%= f.email_field :email, class: 'form-control au-input au-input--full', placeholder: 'Email' %>
   </div>
 
   <div class="form-group">
-    <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+    <%= f.label :name, "Password", style: "color: #666; text-align: left" %>
+    <%= f.password_field :password, class: 'form-control au-input au-input--full', placeholder: 'Password' %>
   </div>
 
   <div class="form-group">
-    <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm Password' %>
+    <%= f.label :name, "Confirm Password", style: "color: #666; text-align: left" %>
+    <%= f.password_field :password_confirmation, class: 'form-control au-input au-input--full', placeholder: 'Confirm Password' %>
   </div>
 
   <div class="form-group">
-    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <%= f.submit yield(:button_text), class: "au-btn au-btn--block au-btn--green m-b-20 mt-4" %>
   </div>
 <% end %>

@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :admin_logged_in, only: [:index, :edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
@@ -69,6 +70,12 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :time, :image)
+      params.require(:item).permit(:name, :description, :time, :image_url, :category_id, :user_id)
+    end
+
+    def admin_logged_in
+      unless admin?
+        redirect_to :root
+      end
     end
 end

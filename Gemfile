@@ -3,10 +3,26 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+# Multi language
+gem 'rails-i18n'
+
+# Ckeditor
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'ckeditor'
+
+# Google map
+gem 'gmaps4rails'
+
+# Facebook login
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook', '5.0.0'
+
 gem 'jquery-rails'
+
+# Use cloudinary
+gem 'cloudinary','~>1.13.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0.rc1'
 # Bootstrap

@@ -1,0 +1,19 @@
+
+development:
+  cloud_name: rails-cloud
+  api_key: '117362552532573'
+  api_secret: 4xNEGnJgQuGL9rL9R45_lwZMql0
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: rails-cloud
+  api_key: '117362552532573'
+  api_secret: 4xNEGnJgQuGL9rL9R45_lwZMql0
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: rails-cloud
+  api_key: '117362552532573'
+  api_secret: 4xNEGnJgQuGL9rL9R45_lwZMql0
+  enhance_image_tag: true
+  static_file_support: false

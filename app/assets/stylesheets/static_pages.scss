@@ -6,7 +6,6 @@
 .main-container {
     text-align: center;
     margin-top: 50px;
-    color: #fff;
     width: 100%;
     display: inline-block;
     min-height: 100vh;
@@ -19,11 +18,13 @@
       font-size: 60px;
       padding: 13% 0 0px;
       font-weight: bolder;
+      color: #fff;
     }
     h2 {
       text-align: center;
       font-size: 25px;
       padding: 40px;
+      color: #fff;
     }
   }
   
@@ -47,11 +48,6 @@
       padding: 13% 0 0px;
       font-weight: bolder;
     }
-  h2 {
-    text-align: center;
-    font-size: 25px;
-    padding: 40px;
-  }
 
 .black-layout {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85)), url(hp-background.png);

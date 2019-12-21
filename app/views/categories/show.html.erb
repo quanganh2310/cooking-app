@@ -1,14 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-5 pt-5">  
+  <div class="item-container px-4 pb-5">
+    <div class="row">
+      <div class="col-md-8">
+        <h2><%= @category.title %> - <%= @category.items.count %> recipes</h2>
+        <div class="category-info">
+          <%= image_tag(@category.image_url, alt: @category.title, width: '170', class: 'my-4 d-inline-block') %>
+          <div class="ml-4 d-inline-block"><%= raw @category.description %></div>
+        </div>
+        
+        <div class="py-2" style="border-bottom: 2px solid #dbb34d"><h2><%= @category.title %>の一覧 </h2></div>
+        <div class="category-show-all row pt-3">
+          <% @category.items.each do |item| %>
+            <div class="col-md-4 pb-3">
+              <%= link_to image_tag(item.image_url, alt: item.name, width: '100%', height: '100%', class: 'my-4 d-inline-block'), item %>
+              <h3><%= link_to item.name, item %></h3>
+            </div>
+          <% end %>
+        </div>
+      </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @category.title %>
-</p>
+      <div class="col-md-4">
+        <h3>Relavite items</h3>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= render 'layouts/footer' %>

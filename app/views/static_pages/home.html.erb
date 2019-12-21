@@ -7,15 +7,16 @@
   </head>
   <body>
     <div class="main-container">
-      <h1>Taste of the East</h1>
-      <h2>San Francisco's Most Acclaimed Asian Restaurant</h2>
+      <h1><%= t("home.title") %></h1>
+      <h2><%= t("home.description") %></h2>
 
 
     </div>
     <div class="signup-container">
-      <h1>Sign up</h1>
-      <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary", id: "signup-btn" %>
+      <h1><%= t("home.signup.title") %></h1>
+      <%= link_to t("home.signup.button"), signup_path, class: "btn btn-lg btn-primary", id: "signup-btn" %>
     </div>
 
+  <%= render 'layouts/footer' %>
   </body>
 </html>

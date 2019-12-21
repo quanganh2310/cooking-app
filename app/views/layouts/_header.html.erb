@@ -2,16 +2,17 @@
 <nav class="navbar navbar-expand-lg header fixed-top">
   <div class="container">
     <%= form_tag(search_path, :method => "get", class: 'form-inline my-2 my-lg-0') do %>  
-      <%= search_field_tag :search, params[:search], placeholder: "Search", class: "mb-0 form-control mr-sm-2 " %>   
-      <%= button_tag "Search", :class => 'btn btn-outline-success my-2 my-sm-0',:name => nil%>  
+      <%= search_field_tag :search, params[:search], placeholder: t("header.search-bar.placeholder"), class: "mb-0 form-control mr-sm-2 " %>   
+      <%= button_tag t("header.search-bar.button"), :class => 'btn btn-outline-success my-2 my-sm-0',:name => nil%>  
     <% end %>
-
-    <div class="navbar-collapse">
+    <div class="navbar-collapse" style="margin-right: -5%">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><%= link_to "Home",   root_path, class: "nav-link header-item" %></li>
-        <li class="nav-item"><%= link_to "About",   about_path, class: " nav-link header-item "  %></li>
+        
+        <li class="nav-item"><%= link_to t("header.item.home") ,   root_path, class: "nav-link header-item" %></li>
+        <li class="nav-item"><%= link_to t("header.item.about"),   about_path, class: " nav-link header-item "  %></li>
+        <li class="nav-item"><%= link_to t("header.item.contact"),   contact_path, class: " nav-link header-item "  %></li>
         <li class="nav-item dropdown">
-            <a href="javascript:" class="dropdown-toggle nav-link header-item" data-toggle="dropdown">Menu</a>
+            <a href="javascript:" class="dropdown-toggle nav-link header-item" data-toggle="dropdown"><%= t("header.item.menu") %></a>
             <ul class="dropdown-menu">
               <% get_categories.each do |category| %>
                 <li><%= link_to category.title, category, class: "dropdown-item" %></li>
@@ -20,43 +21,55 @@
           </li>
 
         <% if !logged_in? %>
-          <li><%= link_to "Log in", login_path, class: "nav-link header-item"  %></li>
+          <li><%= link_to t("header.item.login"), login_path, class: "nav-link header-item"  %></li>
 
         <% elsif current_user.admin? %>
-          <li><%= link_to "Users", users_path, class: "nav-link header-item"  %></li>
           <li class="dropdown">
             <a href="javascript:" class="dropdown-toggle nav-link header-item" data-toggle="dropdown">
-              Account <b class="caret"></b>
+              <%= t("header.item.account") %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li class="nav-item"><%= link_to "Profile", user_path(current_user), class: "dropdown-item" %></li>
-              <li class="nav-item"><%= link_to "Settings", edit_user_path(current_user), class: "dropdown-item"  %></li>
-              <li class="nav-item"><%= link_to "Items", items_path, class: "dropdown-item" %></li>
-              <li class="nav-item"><%= link_to "Categories", categories_path, class: "dropdown-item" %></li>
+              <li class="nav-item"><%= link_to t("header.login-dropdown.profile"), user_path(current_user), class: "dropdown-item" %></li>
+              <li class="nav-item"><%= link_to t("header.login-dropdown.settings"), edit_user_path(current_user), class: "dropdown-item"  %></li>
+              <li class="nav-item"><%= link_to t("header.login-dropdown.dashboard"), dashboard_path, class: "dropdown-item" %></li>
               <div class="dropdown-divider"></div>
-              <li>
-                <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item" %>
+              <li class="nav-item">
+                <%= link_to t("header.login-dropdown.logout"), logout_path, method: :delete, class: "dropdown-item" %>
               </li>
             </ul>
           </li>
 
         <% elsif logged_in? %>
-          <li><%= link_to "Users", '#', class: "header-item"  %></li>
           <li class="dropdown">
             <a href="javascript:" class="dropdown-toggle nav-link header-item" data-toggle="dropdown">
-              Account <b class="caret"></b>
+              <%= t("header.item.account") %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li class="nav-item"><%= link_to "Profile", user_path(current_user), class: "dropdown-item" %></li>
-              <li class="nav-item"><%= link_to "Settings", edit_user_path(current_user), class: "dropdown-item"  %></li>
+              <li class="nav-item"><%= link_to t("header.login-dropdown.profile"), user_path(current_user), class: "dropdown-item" %></li>
+              <li class="nav-item"><%= link_to t("header.login-dropdown.settings"), edit_user_path(current_user), class: "dropdown-item"  %></li>
               <div class="dropdown-divider"></div>
-              <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
+              <li class="nav-item">
+                <%= link_to t("header.login-dropdown.logout"), logout_path, method: :delete, class: "dropdown-item" %>
               </li>
             </ul>
           </li>
 
         <% end %>
+
+        <li class="dropdown">
+          <a href="javascript:" class="dropdown-toggle nav-link header-item" data-toggle="dropdown">
+            <% if I18n.locale == :en %>
+              <%= t("header.item.language.en") %>
+            <% else %>
+              <%= t("header.item.language.jp") %>
+            <% end %>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu" style="min-width: 90px">
+            <li class="nav-item"><%= link_to "English", locale:"en" %></li>
+            <li class="nav-item"><%= link_to "日本語", locale:"jp"  %></li>
+          </ul>
+        </li>
 
       </ul>
     </div>

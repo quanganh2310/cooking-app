@@ -1,37 +1,49 @@
-<%= form_with(model: item, local: true) do |form| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
-      <ul>
-        <% item.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+  <div class="card mr-5">
+    <div class="card-body">
+      <%= form_with(model: item, local: true) do |form| %>
+        <% if item.errors.any? %>
+          <div class="form-group alert au-alert-danger alert-dismissible fade show au-alert au-alert--70per">
+            <%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:
+            <ul>
+              <% item.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <div class="card-title my-3">
+            <h3 class="text-left title-2"><%= title %></h3>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :name, class: "control-label mb-1" %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :description, class: "control-label mb-1" %>
+          <%= form.text_area :description, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :time, class: "control-label mb-1" %>
+          <%= form.text_field :time, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :picture %>
+          <%= form.file_field :image_url, direct_upload: true %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :category_id, class: "control-label mb-1" %>
+          <%= form.collection_select :category_id, Category.all, :id, :title, {}, {class: "form-control"} %>
+        </div>
+
+        <%= form.hidden_field :user_id, :value => current_user.id %>
+        <button type="submit" class="btn btn-lg btn-info">Submit</button>
+        
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.text_field :time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

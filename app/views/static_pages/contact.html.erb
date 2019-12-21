@@ -1,0 +1,71 @@
+<% provide(:title, "Contact") %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) =%> | Ruby on Rails Tutorial Sample App</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mb-5">Contact</h1>
+      
+      <div style='width: 800px; margin: auto'>  
+        <div id="map" style='width: 800px; height: 400px;'></div>  
+      </div>  
+
+      <div class="row my-4">
+        <button type="button" class="btn btn-info m-auto" data-toggle="modal" data-target="#exampleModal">
+          Contact with us
+        </button>
+      
+      </div>
+
+      <!-- Popup dialog -->
+      <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Contact with us</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  
+                </div>
+                <div class="col-md-6"></div>
+              </div>
+              <div class="row"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success">Send</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script type="text/javascript">  
+        handler = Gmaps.build('Google');  
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){  
+        markers = handler.addMarkers([  
+            {  
+            "lat": 21.004433,  
+            "lng": 105.844016,  
+            "picture": { 
+                "width":  32,  
+                "height": 32  
+            },  
+            "infowindow": "We are here !"  
+            }  
+        ]);  
+        handler.bounds.extendWith(markers);  
+        handler.fitMapToBounds();  
+        });  
+      </script>
+    </div>
+  <%= render 'layouts/footer' %>
+  </body>
+</html>

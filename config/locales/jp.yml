@@ -1,0 +1,27 @@
+jp:
+  header:
+    search-bar:
+      placeholder: "検索"
+      button: "検索"
+    item:
+      home: "ホーム"
+      about: "概要"
+      contact: "お問い合わせ"
+      menu: "カテゴリ一覧"
+      account: "アカウント"
+      login: "ログイン"
+      language:
+        en: "English"
+        jp: "日本語"
+    login-dropdown:
+      profile: "プロフィール"
+      settings: "設定"
+      dashboard: "管理画面"
+      logout: "ログアウト"
+  home: 
+    title: "和の味"
+    description: "サンフランシスコで最も高評価アジア料理レストラン"
+    signup:
+      title: "会員登録"
+      button: "無料会員登録"
+    footer:

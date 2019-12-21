@@ -23,6 +23,17 @@ module SessionsHelper
     def current_user?(user)
       user == current_user
     end
+
+    def admin?
+      if current_user != nil
+        if @current_user.admin == true
+          return true
+        else
+          return false
+        end
+      end
+    end
+  
   
     # Returns the current logged-in user (if any).
     def current_user

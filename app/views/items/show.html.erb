@@ -1,24 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-5 pt-5">  
+  <div class="item-container px-4 pb-5">
+    <div class="row">
+      <div class="col-md-8">
+        <h3><%= link_to @item.category.title, @item.category %> > <%= @item.name %> </h3>
+        <%= image_tag(@item.image_url, alt: @item.name, width: '500', height: '500', class: 'my-5') %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
+        <h2 class="mb-4"><%= @item.name %></h2>
+        <span class="mb-4 d-block"><%= @item.description %></span>
+        <div class="item-time">
+          <span class=" d-block">Time: <%= @item.time %></span>
+        </div>
+        
+      </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
+      <div class="col-md-4">
+        <h3>Relavite items</h3>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Time:</strong>
-  <%= @item.time %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @item.image %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<%= render 'layouts/footer' %>

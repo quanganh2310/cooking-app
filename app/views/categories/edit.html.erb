@@ -1,6 +1,12 @@
-<h1>Editing Category</h1>
+<div class="mt-5 pt-5" style="background-color: #e5e5e5" >
+    <div class="row">
+        <div class="col-lg-4">
+            <%= render 'layouts/sidebar' %> 
+        </div>
+        <div class="col-lg-8">
+            <%= render 'form', category: @category, title: "Edit Category" %>
+        </div>
 
-<%= render 'form', category: @category %>
-
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+    </div>
+    <%= link_to 'Back', items_path, class: "btn btn-lg btn-info text-white" %>
+</div>

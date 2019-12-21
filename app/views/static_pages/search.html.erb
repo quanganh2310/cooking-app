@@ -6,12 +6,13 @@
     <title><%= yield(:title) %>| Ruby on Rails Tutorial Sample App</title>
   </head>
   <body>
-    <div class="page-container">
-      <h3>Search Result</h3>  
+    <div class="container">
+      <h1 class="mb-5">Search Result</h1>  
 
         <% @results.each do |result| %>  
             <%= result.name %><br>  
         <% end %>
     </div>
+  <%= render 'layouts/footer' %>
   </body>
 </html>

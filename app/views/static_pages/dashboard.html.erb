@@ -1,0 +1,23 @@
+<% provide(:title, "About") %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) =%> | Ruby on Rails Tutorial Sample App</title>
+  </head>
+  <body>
+    <div class="mt-5 pt-5" style="background-color: #e5e5e5; min-height: 100vh" >
+        <div class="row">
+            <div class="col-lg-4">
+                <%= render 'layouts/sidebar' %> 
+            </div>
+            <div class="col-lg-8">
+                This is dashboard
+            </div>
+
+        </div>
+        
+    </div>
+
+  </body>
+</html>
