@@ -8,8 +8,18 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+
+  before_create :generate_confirm_token
+  # after_create :confirm_mail_address
+
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true  
+
+  scope :confirmed, ->{where "`users`.`confirm_token` IS NULL AND `users`.`confirmed_at` < ?", Time.now}
+
+  # def confirm_mail_address
+  #   UserMailer.confirm_user_mail(self).deliver_now
+  # end
 
   # Returns the hash digest of the given string.
   def self.digest(string)
@@ -67,4 +77,25 @@ class User < ApplicationRecord
     user.save!
     user
   end
+
+
+  def reset_confirm_token
+    generate_confirm_token
+    self.save
+  end
+
+  private
+  def generate_token column
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
+
+  def generate_confirm_token
+    generate_token :confirm_token
+  end
+
+  
+
+
 end

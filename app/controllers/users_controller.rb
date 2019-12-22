@@ -32,9 +32,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
+      UserMailer.confirm_user_mail(@user).deliver_now
+      # @user.send_activation_email
+      # flash[:info] = "Please check your email to activate your account."
+      # redirect_to root_url
+      # redirect_to check_mail_address_path
+      # flash[:success] = "Thank you for your order! We'll get contact you soon!"
+      redirect_to root_path
     else
       render 'new'
     end
@@ -93,4 +97,26 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
+
+
+    def confirm_mail_address
+      @user = User.find_by confirm_token: params[:id]
+      if @user
+        @user.update confirm_token: nil, confimed_at: Time.now
+        redirect_to signup_success_path
+      else
+        redirect_to signup_fail_path
+      end
+    end
+
+    def signup_success
+    end
+
+    def signup_fail
+    end
+
+
+    def check_mail_address
+    end
+
 end
