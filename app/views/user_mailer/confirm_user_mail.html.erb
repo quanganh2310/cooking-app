@@ -1,0 +1,2 @@
+<p>Welcome</p> <% @user.email %> <p>to Framgia</p>
+<%= link_to "Confirm Account", edit_account_activation_url(@user.confirm_token) %>
