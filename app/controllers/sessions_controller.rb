@@ -15,11 +15,11 @@ class SessionsController < ApplicationController
         else
           message  = "Account not activated. "
           message += "Check your email for the activation link."
-          flash[:warning] = message
+          # flash[:warning] = message
           redirect_to root_url
         end  
       else
-        flash.now[:danger] = 'Invalid email/password combination'
+        # flash.now[:danger] = 'Invalid email/password combination'
         render 'new'
       end
     else
@@ -27,9 +27,9 @@ class SessionsController < ApplicationController
       begin
         user = User.from_omniauth(request.env['omniauth.auth'])
         log_in user
-        flash[:success] = "Welcome"
+        # flash[:success] = "Welcome"
       rescue
-        flash[:danger] = "Error"
+        # flash[:danger] = "Error"
       end
       redirect_to user
     end
