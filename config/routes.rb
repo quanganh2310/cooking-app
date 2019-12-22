@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get  '/contact', to: 'static_pages#contact'
     get  '/dashboard', to: 'static_pages#dashboard'
     get  '/search', to: 'static_pages#search'
+    get  '/sendmess', to: 'static_pages#sendmess'
     get  '/signup',  to: 'users#new'
     get    '/login',   to: 'sessions#new'
     post   '/login',   to: 'sessions#create'
