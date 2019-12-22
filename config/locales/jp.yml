@@ -25,3 +25,42 @@ jp:
       title: "会員登録"
       button: "無料会員登録"
     footer:
+      address: "所在地"
+      open: "営業時間"
+      mon: "【平日】11:00～22:00"
+      sat: "【土・日】11:00～24:00"
+      contact: "お問い合わせ"
+      follow: "公式SNS"
+  about:
+    title: "概要"
+  contact:
+    title: "お問い合わせ"
+    button: "お問い合わせ"
+  search:
+    title: "検索結果"
+  form:
+    login:
+      title: "ログイン"
+      email: "メールアドレス"
+      pass: "パスワード"
+      remember: "サインイン状態を維持"
+      forgot: "パスワードをお忘れですか？"
+      login-btn: "ログイン"
+      fb-btn: "FACEBOOKアカウントでログインする"
+      tt-btn: "TWITTERアカウントでログインする"
+      no-acc: "まだアカウントをお持ちではないですか？"
+      signup-now: "アカウントの登録"
+    register:
+      title: "会員登録"
+      name: "ユーザー名"
+      email: "メールアドレス"
+      pass: "パスワード"
+      confirm: "確認用のパスワード"
+      button: "アカウントを作成する"
+    update:
+      title: "プロフィールを編集"
+      name: "ユーザー名"
+      email: "メールアドレス"
+      pass: "パスワード"
+      confirm: "確認用のパスワード"
+      button: "保存する"

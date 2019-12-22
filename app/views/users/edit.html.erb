@@ -1,12 +1,12 @@
 <% provide(:title, 'Edit user') %>
-<% provide(:button_text, 'Save changes') %>
+<% provide(:button_text, t("form.update.button")) %>
 
 <div class="main-container black-layout">
   <div class="container">
     <div class="login-wrap">
       <div class="login-form">
         <div class="login-content">
-          <h3 class="my-3">Update your profile</h3>
+          <h3 class="my-3"><%= t("form.update.title") %></h3>
           <%= render 'form' %>
         </div>
       </div>

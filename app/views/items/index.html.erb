@@ -31,7 +31,7 @@
                             <td><%= item.category.title %></td>
                             <td><%= link_to 'Show', item %></td>
                             <td><%= link_to 'Edit', edit_item_path(item) %></td>
-                            <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                            <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, remote: :true, class: "delete-item" %></td>
                           </tr>
                         <% end %>
                       </tbody>

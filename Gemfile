@@ -20,6 +20,7 @@ gem 'omniauth'
 gem 'omniauth-facebook', '5.0.0'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Use cloudinary
 gem 'cloudinary','~>1.13.1'
@@ -54,6 +55,10 @@ gem 'bootstrap-will_paginate', '1.0.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+
+group :production do
+  gem 'pg', '0.20.0'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

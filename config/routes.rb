@@ -16,6 +16,6 @@ Rails.application.routes.draw do
     delete '/logout',  to: 'sessions#destroy'
     get '/auth/:provider/callback', to: 'sessions#create'
     resources :users
-    resources :account_activations, only: [:edit]
   end
+  resources :account_activations, only: [:edit]
 end

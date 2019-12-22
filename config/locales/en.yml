@@ -25,3 +25,38 @@ en:
       title: "Sign up"
       button: "Sign up now"
     footer:
+      address: "ADDRESS"
+      open: "OPENING HOURS"
+      mon: "Mon - Fri: 11am - 10pm"
+      sat: "Sat - Sun: 11am - 12am"
+      contact: "CONTACT"
+      follow: "FOLLOW"
+  about:
+    title: "About"
+  contact:
+    title: "Contact"
+    button: "Contact with us"
+  search:
+    title: "Search Result"
+  form:
+    login:
+      title: "Sign in"
+      email: "Email Address"
+      pass: "Password"
+      remember: "Remember Me"
+      forgot: "Forgotten Password?"
+      login-btn: "Sign in"
+      fb-btn: "Sign in with Facebook"
+      tt-btn: "Sign in with Twitter"
+      no-acc: "Don't you have account?"
+      signup-now: "Sign up now!"
+    register:
+      title: "Sign up"
+      name: "Username"
+      email: "Email Address"
+      pass: "Password"
+      confirm: "Confirm Password"
+      button: "Sign up"
+    update:
+      title: "Update your profile"
+      button: "Save changes"

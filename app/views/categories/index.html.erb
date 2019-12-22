@@ -25,7 +25,7 @@
                             <td><%= image_tag category.image_url , width: '52', height: '52' %></td>
                             <td><%= link_to 'Show', category %></td>
                             <td><%= link_to 'Edit', edit_category_path(category) %></td>
-                            <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                            <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, remote: :true, class: "delete-item" %></td>
                           </tr>
                         <% end %>
                       </tbody>

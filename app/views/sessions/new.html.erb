@@ -4,40 +4,40 @@
   <div class="container">
     <div class="login-wrap">
         <div class="login-content">
-            <h3 class="my-3">Sign in</h3>
+            <h3 class="my-3"><%= t("form.login.title") %></h3>
             <div class="login-form">
               <%= form_for(:session, url: login_path) do |f| %>
                   <div class="form-group">
-                    <%= f.label :email, "Email Address", style: "color: #666; text-align: left" %>
-                    <%= f.email_field :email, class: 'form-control au-input au-input--full', placeholder: 'Email' %>
+                    <%= f.label :email, t("form.login.email"), style: "color: #666; text-align: left" %>
+                    <%= f.email_field :email, class: 'form-control au-input au-input--full', placeholder: t("form.login.email") %>
                   </div>
                   <div class="form-group">
-                    <%= f.label :password, "Password", style: "color: #666; text-align: left" %>
-                    <%= f.password_field :password, class: 'form-control au-input au-input--full',  placeholder: 'Password' %>
+                    <%= f.label :password, t("form.login.pass"), style: "color: #666; text-align: left" %>
+                    <%= f.password_field :password, class: 'form-control au-input au-input--full',  placeholder: t("form.login.pass") %>
                   </div>
                   <div class="login-checkbox">
                       <div class="form-check">
                         <%= f.label :remember_me do %>
                         <%= f.check_box :remember_me, class: "form-check-input" %>
                       </div>
-                      <span class="text-muted">Remember Me</span>
+                      <span class="text-muted"><%= t("form.login.remember") %></span>
                       <% end %>
                       <label>
-                          <a href="#">Forgotten Password?</a>
+                          <a href="#"><%= t("form.login.forgot") %></a>
                       </label>
                   </div>
-                  <%= f.submit "sign in", class: "au-btn au-btn--block au-btn--green m-b-20" %>
+                  <%= f.submit t("form.login.login-btn"), class: "au-btn au-btn--block au-btn--green m-b-20" %>
                 <% end %>
                 <div class="social-login-content">
                     <div class="social-button">
-                        <%= link_to "Sign in with Facebook", "/auth/facebook", class: "au-btn au-btn--block au-btn--blue m-b-20 text-white" %>
-                        <button class="au-btn au-btn--block au-btn--blue2">sign in with twitter</button>
+                        <%= link_to t("form.login.fb-btn"), "/auth/facebook", class: "au-btn au-btn--block au-btn--blue m-b-20 text-white" %>
+                        <button class="au-btn au-btn--block au-btn--blue2"><%= t("form.login.tt-btn") %></button>
                     </div>
                 </div>
                 <div class="register-link">
                     <p style="color: #666">
-                        Don't you have account?
-                        <%= link_to "Sign up now!", signup_path %>
+                        <%= t("form.login.no-acc") %>
+                        <%= link_to t("form.login.signup-now"), signup_path %>
                     </p>
                 </div>
             </div>
