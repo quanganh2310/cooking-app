@@ -43,7 +43,7 @@
 
   <% if !admin? %>
   <script>
-
+  $(document).ready(function() {
     var notifications = $('body').find('div.noti-container');
     var button = $(".click");
 
@@ -82,10 +82,11 @@
         button.click();
 
     });
-
-    function handle() {
-      $('#deleteModal').modal('show')
-    }
+  });
+  
+  function handle() {
+    $('#deleteModal').modal('show')
+  }
     
   </script>
   <% end %>
