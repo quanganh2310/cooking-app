@@ -24,9 +24,9 @@ Rails.application.routes.draw do
 
   get "/signup_success", to: "users#signup_success"
   get "/signup_fail", to: "users#signup_fail"
-  resources :users do
-    put :confirm_mail_address, on: :member
-  end
+  # resources :users do
+  #   put :confirm_mail_address, on: :member
+  # end
     
   end
   

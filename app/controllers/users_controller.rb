@@ -36,9 +36,8 @@ class UsersController < ApplicationController
       # @user.send_activation_email
       # flash[:info] = "Please check your email to activate your account."
       # redirect_to root_url
-      # redirect_to check_mail_address_path
-      # flash[:success] = "Thank you for your order! We'll get contact you soon!"
-      redirect_to root_path
+      redirect_to check_mail_address_path
+      # redirect_to root_path
     else
       render 'new'
     end
@@ -99,15 +98,15 @@ class UsersController < ApplicationController
     end
 
 
-    def confirm_mail_address
-      @user = User.find_by confirm_token: params[:id]
-      if @user
-        @user.update confirm_token: nil, confimed_at: Time.now
-        redirect_to signup_success_path
-      else
-        redirect_to signup_fail_path
-      end
-    end
+    # def confirm_mail_address
+    #   @user = User.find_by confirm_token: params[:id]
+    #   if @user
+    #     @user.update confirm_token: nil, confimed_at: Time.now
+    #     redirect_to signup_success_path
+    #   else
+    #     redirect_to signup_fail_path
+    #   end
+    # end
 
     def signup_success
     end

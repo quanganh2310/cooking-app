@@ -1,2 +1,12 @@
-Welcome <% @user.email %> to Framgia
+Cooking App
+
+Hi <%= @user.name %>,
+
+Thanks for signing up with Cooking App!
+You must click on the link below to activate your account: 
+
 <%= link_to "Confirm Account", edit_account_activation_url(@user.confirm_token) %>
+
+Have fun, and don't hesitate to contact us with your feedback.
+
+The Cooking App Team

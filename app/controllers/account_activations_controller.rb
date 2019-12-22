@@ -10,14 +10,13 @@ class AccountActivationsController < ApplicationController
         #     flash[:danger] = "Invalid activation link"
         #     redirect_to root_url
         # end
-        @user = User.find_by confirm_token: params[:id]
+      @user = User.find_by confirm_token: params[:id]
       if @user
         @user.update confirm_token: nil, confirm_at: Time.now, activated: 1
-        flash[:success] = "Account activated!"
-        redirect_to @user
+        redirect_to signup_success_path
       else
         flash[:danger] = "Invalid activation link"
-        redirect_to root_url
+        redirect_to signup_fail_path
       end
     end
 end
